@@ -1,40 +1,443 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <style>
+        .redlines {
+            color: red;
+            font-family: equity_b, Source Sans Pro, Helvetica, sans-serif !important;
+            font-style: italic;
+            text-transform: none;
+            font-stretch: 200%;
+        }
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+        .caption {
+            font-style: italic;
+            text-transform: none;
+            font-size: small;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2>From Law to Code</h2>
+            <p>My Unexpected Journey into Open Source</p>
+            <p><em>geekcamp.sg</em>, 14 October 2023</p>
+        </section>
+        <section>
+            <h2>Disclaimer</h2>
+            <ul>
+                <li>Views are strictly mine and I don't represent anyone else</li>
+                <li>No legal advice blah blah blah</li>
+                <li>I assume no liability whatsoever for any errors or omissions in this presentation.</li>
+                <li>I assume no liability whatsoever for your use of this presentation (including its contents).</li>
+            </ul>
+            <p>This work is licensed under <a
+                    href="http://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1" target="_blank"
+                    rel="license noopener noreferrer" style="display:inline-block;">CC BY-ND 4.0</a></p>
+        </section>
+        <section>
+            <h2>Outline</h2>
+            <ul>
+                <li>Who am I</li>
+                <li>Origins of the <span class="redlines">redlines</span> library</li>
+                <li>A brief, sparkling moment of virality</li>
+                <li>How I "open source"</li>
+                <li>Why you should do it too</li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h2>Who am I</h2>
+            </section>
+            <section>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+                <h2>Corporate Counsel by day</h2>
+                <ul>
+                    <li>PQE: 10+</li>
+                    <li>Previous life: all sorts of litigation</li>
+                    <li>Now: In house counsel</li>
+                </ul>
+                <p>
+                    <a href="https://www.linkedin.com/in/hou-fu-ang-0a6851113/">
+                        <img src="images/In-White-128@2x.png"
+                             style="width: 96px"
+                             alt="LinkedIn Logo"
+                        ></a>
+                </p>
+            </section>
+            <section>
+                <h2>Coder by night</h2>
+                <p>
+                    <a href="https://github.com/houfu">
+                        <img src="images/github-mark-white.png"
+                             style="width: 96px"
+                             alt="LinkedIn Logo"
+                        >
+                    </a>
+                </p>
+                <ul>
+                    <li><a href="https://www.lovelawrobots.com">Blog: LoveLawRobots</a></li>
+                    <li><a href="https://kopiti.am/@houfu">Mastodon</a></li>
+                    <li><a href="https://twitter.com/houfu">X/Twitter</a></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section><h1>What are lawyers like?</h1></section>
+            <section>
+                <p>Lawyers are <strong>perfectionists</strong>
+                <div class="fragment">to a fault...</div>
+                </p>
+                <img src="images/legal-approves-my-contract.png" class="r-stretch"
+                     alt="Picture of a mummy with caption: 'Me when legal finally approves my contract'. Source: https://x.com/heyitsalexsu/status/1701973373624950973?s=20"/>
+            </section>
+            <section>
+                <p>Lawyers are very conscious of <strong> risks</strong>
+                <div class="fragment">Maybe a bit too much...</div>
+                </p>
+                <blockquote class="twitter-tweet tw-align-center r-stretch"><p lang="en" dir="ltr" data-dnt="true"
+                                                                               data-theme="dark"
+                                                                               data-wdith="250">
+                    Sales: Legal is always worried about shit that
+                    never happens bro<br><br>Also sales: <a
+                        href="https://t.co/xkvmJMtd4l">pic.twitter.com/xkvmJMtd4l</a></p>&mdash; Alex Su
+                    (@heyitsalexsu) <a
+                            href="https://twitter.com/heyitsalexsu/status/1694007257846173779?ref_src=twsrc%5Etfw">August
+                        22, 2023</a></blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </section>
+            <section>
+                <p>Lawyers are doing fine
+                <div class="fragment">At least most of us are...</div>
+                </p>
+                <img src="images/lawyers-who-quit,png" class="r-stretch"
+                     alt="Picture of news report with headline:
+Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 years' experience: Law Society "/>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>So... how did
+                    <div class="redlines">redlines</div>
+                    start?
+                </h2>
+            </section>
+            <section>
+                <h2>It begins with a plan to do "data science"</h2>
+            </section>
+            <section>
+                <p>Big changes to the laws in Singapore at the end of 2021</p>
+                <img src="images/universal-revision-project.pdf.png" class="r-stretch"
+                     alt="Screenshot showing the announcement that Acts were being updated to be simplified and modern."/>
+            </section>
+            <section>
+                <h3>Simplified language</h3>
+                <p>Language in most Acts is simplified and modernised.</p>
+                <hr/>
+                <div class="r-stack">
+                    <div class="fragment fade-in-then-out">
+                        <strong>Archaic words and long expressions simplified</strong>
+                        <p style="font-style: italic">
+                            e.g. "Despite" instead of "Notwithstanding" </p>
+                        <p style="font-style: italic">
+                            "To avoid doubt" instead of "For the avoidance of doubt"
+                        </p>
+                    </div>
+                    <div class="fragment fade-in-then-out">
+                        <strong>Lengthy provisions broken down into sub-provisions</strong>
+                    </div>
+                    <div class="fragment fade-in-then-out">
+                        <strong>Gender-neutral language</strong>
+                        <p style="font-style: italic"> e.g. "chairperson" instead of "chairman" </p>
+                        <p style="font-style: italic">"him or her" instead of just "him" </p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>How would we evaluate the readability of legislation?</h2>
+            </section>
+            <section>
+                <p>It looks like this...</p>
+                <img src="images/FOdv6H7XEAchOxu.jpg" class="r-stretch" style="max-height: 500px"
+                     alt="Graph showing the FRE distribution of sections evaluated."/>
+            </section>
+            <section>
+                <p>I wanted a way to explore changes in detail (by section) too</p>
+                <img src="images/section-explorer.png" class="r-stretch"/>
+                <p class="caption">To see the finished app you can visit it here:
+                    https://share.streamlit.io/houfu/plus-explorer/main/explorer.py</p>
+            </section>
+            <section>
+                <p>So I needed a way to visualise changes in text.</p>
+                <img src="images/differences-in-text.png" class="r-stretch"/>
+            </section>
+            <section>
+                <p>The "python" way was not appealing to me.</p>
+                <pre style="margin-top: 2em"> <code data-trim>
+['    1. Beautiful is better than ugly.\n',
+ '-   2. Explicit is better than implicit.\n',
+ '-   3. Simple is better than complex.\n',
+ '+   3.   Simple is better than complex.\n',
+ '?     ++\n',
+ '-   4. Complex is better than complicated.\n',
+ '?            ^                     ---- ^\n',
+ '+   4. Complicated is better than complex.\n',
+ '?           ++++ ^                      ^\n',
+ '+   5. Flat is better than nested.\n']
+                </code> </pre>
+            </section>
+            <section>
+                <p>I wanted Microsoft Word... in Markdown!</p>
+                <img src="images/microsoft-word.png" class="r-stretch"/>
+            </section>
+            <section>
+                <p>I looked all over the web for something that could do this but I couldn't find any</p>
+                <p class="fragment">I had to make my <span class="redlines">own</span>.</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>How does <span class="redlines">redlines</span> work?</h2>
+                <p><em>A brief introduction</em></p>
+            </section>
+            <section>
+                <p>What's the easiest and fastest way to get my red lines?</p>
+                <p class="fragment fade-in-then-out">
+                    I used the <code>SequenceMatcher</code> helper in the standard python library.
+                </p>
+            </section>
+            <section>
+                <h3>How to get a <span class="redlines">redline</span></h3>
+                <div class="r-stack">
+                    <div class="fragment fade-in-then-out">
+                        <p>The quick brown fox jumps over the lazy dog.</p>
+                        <p style="font-style: italic">VS</p>
+                        <p>The quick brown fox walks past the lazy dog.</p>
+                    </div>
+                    <div class="fragment fade-in-then-out">
+                        <p><strong>Step 1:</strong> Tokenize text into a list of words</p>
+                    </div>
+                    <div class="fragment fade-in-then-out">
+                        <p><code>["The" "quick" "brown" "fox" "jumps" "over" "the" "lazy" "dog."]</code></p>
+                        <p style="font-style: italic">VS</p>
+                        <p><code>"[The" "quick" "brown" "fox" "walks" "past" "the" "lazy" "dog."]</code></p>
+                    </div>
+                    <div class="fragment fade-in-then-out">
+                        <p><strong>Step 2:</strong> Compare the list of words using SequenceMatcher</p>
+                    </div>
+                    <div class="fragment fade-in-then-out">
+                        <p><code>["The" "quick" "brown" "fox" <span style="color: red"> "jumps" "over"</span> "the"
+                            "lazy" "dog."]</code></p>
+                        <p style="font-style: italic">VS</p>
+                        <p><code>["The" "quick" "brown" "fox" <span style="color: red">"walks" "past"</span> "the"
+                            "lazy" "dog."]</code></p>
+                    </div>
+                    <div class="fragment fade-in-then-out">
+                        <p><strong>Step 3:</strong> Get the opcodes</p>
+                        <ul class="r-stretch">
+                            <li><code>('equal', 0, 4, 0, 4)</code></li>
+                            <li><code>('replace', 4, 6, 4, 6)</code></li>
+                            <li><code>('equal', 6, 9, 6, 9)</code></li>
+                        </ul>
+                        <p class="caption">You can read more about SequenceMatcher in the official docs:
+                            https://docs.python.org/3/library/difflib.html#difflib.SequenceMatcher</p>
+                    </div>
+                    <div class="fragment fade-in-then-out">
+                        <p><strong>Step 4:</strong> Create the redlines from the tokens</p>
+                        <ul class="r-stretch">
+                            <li><code>('equal', 0, 4, 0, 4)</code> -> "The quick brown fox"</li>
+                            <li><code>('replace', 4, 6, 4, 6)</code> -> "<span
+                                    style='color:red;font-weight:700;text-decoration:line-through;'>jumps over </span><span
+                                    style='color:green;font-weight:700;'>walks past </span>"
+                            </li>
+                            <li><code>('equal', 6, 9, 6, 9)</code> -> "the lazy dog."</li>
+                        </ul>
+                    </div>
+                    <div class="fragment fade-in-then-out">
+                        <p><strong>Step 5:</strong> Finish by forming the output</p>
+                        <p>"The quick brown fox <span style='color:red;font-weight:700;text-decoration:line-through;'>jumps over </span><span
+                                style='color:green;font-weight:700;'>walks past </span>the lazy dog."
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>It works for my App!</h3>
+                <img src="images/notebook-redlines.png" class="r-stretch"/>
+            </section>
+            <section>
+                <p>My work is done, so I decided to open source it anyway with no expectations.</p>
+                <p><a href="https://github.com/houfu/redlines">https://github.com/houfu/redlines</a></p>
+                <p><a href="https://pypi.org/project/redlines/">https://pypi.org/project/redlines/</a></p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>March 2022</h2>
+                <p>Having completed my side project, I moved on.</p>
+            </section>
+            <section>
+                <div class="r-stack">
+                    <div class="fragment semi-fade-out">
+                        <h2>November 2022</h2>
+                        <p>Public release of ChatGPT</p>
+                    </div>
+                    <img src="images/legal-chatbot.png"
+                         class="fragment fade-in-then-out"/>
+                    <img src="images/rag-sg-law.png"
+                         class="fragment fade-in-then-out"/>
+                    <img src="images/SG-Law-Cookies-by-Your-Amicus.png"
+                         class="fragment fade-in-then-out"/>
+                    <img src="images/courtroom-simulator.png"
+                         class="fragment fade-in-then-out"/>
+                </div>
+            </section>
+            <section>
+                <p>I had completely forgotten about <span class="redlines">redlines</span>.</p>
+            </section>
+            <section>
+                <p>Until one morning, I woke up starry eyed.</p>
+                <img src="images/stars_github.png"
+                     class="r-stretch"/>
+            </section>
+            <section>
+                <p>It seems that a popular prompt engineering course was using my library briefly</p>
+                <img src="images/redlines-dependency-graph.png"
+                     class="r-stretch"/>
+            </section>
+            <section>
+                <p>Other than stars, I found others volunteering pull requests and asking questions about the
+                    library.</p>
+                <p class="fragment">Overnight, I have become <strong>an open source maintainer</strong>...</p>
+            </section>
+            <section>
+                <p>With this encouragement, I was able to try many things that I wouldn't do as a user</p>
+            </section>
+            <section>
+                <p>Reviewing code contributions and merging them in my project</p>
+                <img src="images/redlines-release.png"
+                     class="r-stretch"/>
+            </section>
+            <section>
+                <p>Opening up a Matrix channel to receive questions and discuss</p>
+                <img src="images/matrix-room.avif"
+                     class="r-stretch">
+            </section>
+            <section>
+                <p>Participation from others also helps me work harder on <span class="redlines">redlines</span></p>
+                <ul>
+                    <li>CLI and Web application</li>
+                    <li>More input and output document formats</li>
+                    <li>Considering Long documents</li>
+                    <li>More stylings</li>
+                </ul>
+                <p class="fragment">Hopefully, the library gets to where I envisioned it'd go: <span class="redlines">redlines</span>
+                    everywhere for anyone</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>What have I learnt from my short time as a maintainer?</h2>
+            </section>
+            <section>
+                <h3>New contributions are not so straightforward</h3>
+                <p class="fragment">If the pull request is too awesome...</p>
+                <p class="fragment">I worry that I am not good enough to evaluate it. 😭</p>
+            </section>
+            <section>
+                <h3>On the other hand...</h3>
+                <p class="fragment">If the pull request is terrible...</p>
+                <p class="fragment">I get upset when it breaks the code or wastes my time. 😠</p>
+            </section>
+            <section>
+                <h3>Just take it easy, bro 😎</h3>
+                <ul>
+                    <li class="fragment">Rely on (automated) unit tests to explain code and features</li>
+                    <li class="fragment">Comment, ask questions and take your time</li>
+                    <li class="fragment">Merge first, fix later</li>
+                    <li class="fragment">Have more empathy for your contributors and users</li>
+                </ul>
+            </section>
+            <section>
+                <p>I've always wondered -- who's going to contribute to your project for free?</p>
+                <p class="fragment">You never know until you ask! 🕵🏼‍♂️</p>
+            </section>
+            <section>
+                <h3>Encouraging contributions</h3>
+                <ul class="fragment">
+                    <li><strong>Attract users</strong>: Write enough documentation</li>
+                    <li><strong>Work in the open</strong>: Document your thoughts on an issue tracker and label them
+                    </li>
+                    <li>Look alive</li>
+                </ul>
+                <p class="fragment">Don't forget, <em>you're still the BDFL</em>.</p>
+            </section>
+            <section>
+                <p>The stars are nice, but what if I want to do other things with my life?</p>
+                <p class="fragment">There's always a conflict between the 🔥 in my 💙 and the 🔥 in my 🧠.</p>
+            </section>
+            <section>
+                <h3>Avoiding burnout</h3>
+                <ul>
+                    <li class="fragment">Just take it easy, bro 😎</li>
+                    <li class="fragment">Share the burden early</li>
+                    <li class="fragment">Get the bigger picture and check in regularly</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Should I get involved in open source?</h3>
+                <p class="caption">Yes, obviously...</p>
+            </section>
+            <section>
+                <h3>Benefit 1: A great way to learn how to code and how software is made</h3>
+                <p>A safe way to get "Real world" experience</p>
+            </section>
+            <section>
+                <h3>Benefit 2: Master a different way to work</h3>
+                <p>You're working from home all the time</p>
+            </section>
+            <section>
+                <h3>Benefit 3: Meet IRL people who are interested in the same things as you</h3>
+                <p>If you only spend time with lawyers, you will only ever get to meet lawyers.</p>
+            </section>
+        </section>
+        <section>
+            <h3>Thanks for listening!</h3>
+            <p>By <strong style="font-family: equity_b_caps, Source Sans Pro, Helvetica, sans-serif">Ang Hou Fu</strong></p>
+            <p>Contact: <a href="mailto:houfu@lovelawrobots.com">email</a> </p>
+        </section>
+    </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+</script>
+</body>
 </html>
