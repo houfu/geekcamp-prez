@@ -35,6 +35,7 @@
             <h2>From Law to Code</h2>
             <p>My Unexpected Journey into Open Source</p>
             <p><em>geekcamp.sg</em>, 14 October 2023</p>
+            <p><a href="https://github.com/houfu/geekcamp-prez">Source of this presentation</a></p>
         </section>
         <section>
             <h2>Disclaimer</h2>
@@ -47,6 +48,12 @@
             <p>This work is licensed under <a
                     href="http://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1" target="_blank"
                     rel="license noopener noreferrer" style="display:inline-block;">CC BY-ND 4.0</a></p>
+            <aside class="notes">
+                Highlight that I am not an expert in open source program management (the title says "unexpected"). <br/>
+                This isn't a tutorial, it's a story. <br/>
+                If you think I am wrong, hold your breath.
+                I would be grateful for any feedback or suggestions during Q&A.
+            </aside>
         </section>
         <section>
             <h2>Outline</h2>
@@ -61,9 +68,11 @@
         <section>
             <section>
                 <h2>Who am I</h2>
+                <aside class="notes">
+                    I would like to introduce myself since I am a main character in this story.
+                </aside>
             </section>
             <section>
-
                 <h2>Corporate Counsel by day</h2>
                 <ul>
                     <li>PQE: 10+</li>
@@ -93,31 +102,56 @@
                     <li><a href="https://kopiti.am/@houfu">Mastodon</a></li>
                     <li><a href="https://twitter.com/houfu">X/Twitter</a></li>
                 </ul>
+                <aside class="notes">
+                    I am a self-taught programmer. I did try several languages when I was a teenager but had
+                    to throw that aside when I decided to study law. After I left practice, I found more time to relearn
+                    programming. I got into python after becoming interested in data science. <br/>
+                    I tried to merge these interests in my blog (please visit and subscribe if you like it!) <br/>
+                    I am also fairly active on Mastodon, not so much on Twitter.
+                </aside>
             </section>
         </section>
         <section>
-            <section><h1>What are lawyers like?</h1></section>
             <section>
-                <p>Lawyers are <strong>perfectionists</strong>
-                <div class="fragment">to a fault...</div>
-                </p>
-                <img src="images/legal-approves-my-contract.png" class="r-stretch"
-                     alt="Picture of a mummy with caption: 'Me when legal finally approves my contract'. Source: https://x.com/heyitsalexsu/status/1701973373624950973?s=20"/>
+                <h1>What are lawyers like?</h1>
+                <aside class="notes">
+                    I would like to spend more time talking about my background. <br/>
+                    If you worked with enough lawyers, you would know that they don't like technology.
+                    Let me try to explain why.
+                </aside>
             </section>
             <section>
-                <p>Lawyers are very conscious of <strong> risks</strong>
+                <p>Lawyers are <strong>perfectionists</strong></p>
+                <p class="fragment">to a fault...</p>
+                <img src="images/legal-approves-my-contract.png" class="r-stretch"
+                     alt="Picture of a mummy with caption: 'Me when legal finally approves my contract'. Source: https://x.com/heyitsalexsu/status/1701973373624950973?s=20"/>
+                <aside class="notes">
+                    We don't tolerate imperfection. Work products have to be flawless and defended vigorously.<br/>
+                    As perfectionists, we don't get involved where our output is not ideal. So lawyers become heavily specialised
+                    and do not get involved in other areas.
+                </aside>
+            </section>
+            <section>
+                <p>Lawyers are very conscious of <strong> risks</strong></p>
                 <div class="fragment">Maybe a bit too much...</div>
-                </p>
-                <blockquote class="twitter-tweet tw-align-center r-stretch"><p lang="en" dir="ltr" data-dnt="true"
-                                                                               data-theme="dark"
-                                                                               data-wdith="250">
-                    Sales: Legal is always worried about shit that
-                    never happens bro<br><br>Also sales: <a
-                        href="https://t.co/xkvmJMtd4l">pic.twitter.com/xkvmJMtd4l</a></p>&mdash; Alex Su
-                    (@heyitsalexsu) <a
+                <div class="r-stretch">
+                    <blockquote class="twitter-tweet tw-align-center">
+                        <p lang="en" dir="ltr" data-dnt="true"
+                           data-theme="dark"
+                           data-wdith="250">
+                            Sales: Legal is always worried about shit that
+                            never happens bro<br><br>Also sales: <a
+                                href="https://t.co/xkvmJMtd4l">pic.twitter.com/xkvmJMtd4l</a></p>&mdash; Alex Su
+                        (@heyitsalexsu) <a
                             href="https://twitter.com/heyitsalexsu/status/1694007257846173779?ref_src=twsrc%5Etfw">August
                         22, 2023</a></blockquote>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+                <aside class="notes">
+                    To put it in a nice way, a lawyer's job is to manage risk. </br>
+                    However, this applies to all aspects of our lives. We don't take kindly to new technology or
+                    new methods of working.
+                </aside>
             </section>
             <section>
                 <p>Lawyers are doing fine
@@ -126,6 +160,10 @@
                 <img src="images/lawyers-who-quit,png" class="r-stretch"
                      alt="Picture of news report with headline:
 Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 years' experience: Law Society "/>
+                <aside class="notes">
+                    It's pretty well known in the industry that most lawyers don't last more than 5 years in practice.
+                    The reasons are quite complex.
+                </aside>
             </section>
         </section>
         <section>
@@ -173,20 +211,30 @@ Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 
                 <p>It looks like this...</p>
                 <img src="images/FOdv6H7XEAchOxu.jpg" class="r-stretch" style="max-height: 500px"
                      alt="Graph showing the FRE distribution of sections evaluated."/>
+                <p class="caption">
+                    You can read more about <a
+                        href="https://www.lovelawrobots.com/evaluating-legislation-for-readability-exploring-plus">my
+                    conclusions in this project on my blog.</a>
+                </p>
             </section>
             <section>
                 <p>I wanted a way to explore changes in detail (by section) too</p>
-                <img src="images/section-explorer.png" class="r-stretch"/>
+                <img src="images/section-explorer.png" class="r-stretch"
+                     alt="Screenshot of the Section Explorer in detail"/>
                 <p class="caption">To see the finished app you can visit it here:
                     https://share.streamlit.io/houfu/plus-explorer/main/explorer.py</p>
             </section>
             <section>
                 <p>So I needed a way to visualise changes in text.</p>
-                <img src="images/differences-in-text.png" class="r-stretch"/>
+                <img src="images/differences-in-text.png" class="r-stretch" alt="A screenshot of a comparison of
+                a block of two texts."/>
             </section>
             <section>
                 <p>The "python" way was not appealing to me.</p>
                 <pre style="margin-top: 2em"> <code data-trim>
+from pprint import pprint
+
+pprint(result)
 ['    1. Beautiful is better than ugly.\n',
  '-   2. Explicit is better than implicit.\n',
  '-   3. Simple is better than complex.\n',
@@ -201,10 +249,16 @@ Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 
             </section>
             <section>
                 <p>I wanted Microsoft Word... in Markdown!</p>
-                <img src="images/microsoft-word.png" class="r-stretch"/>
+                <img src="images/microsoft-word.png" class="r-stretch"
+                     alt="Screenshot of Microsoft Word's track changes interface."/>
+                <aside class="notes">
+                    Microsoft Word is the greatest piece of Legal Technology ever made... WordPerfect is
+                    its closest competitor! <br/>
+                    Objectively, the changes look better for long blocks of text.
+                </aside>
             </section>
             <section>
-                <p>I looked all over the web for something that could do this but I couldn't find any</p>
+                <p>I looked all over the web for something that could do this, but I couldn't find any</p>
                 <p class="fragment">I had to make my <span class="redlines">own</span>.</p>
             </section>
         </section>
@@ -233,7 +287,7 @@ Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 
                     <div class="fragment fade-in-then-out">
                         <p><code>["The" "quick" "brown" "fox" "jumps" "over" "the" "lazy" "dog."]</code></p>
                         <p style="font-style: italic">VS</p>
-                        <p><code>"[The" "quick" "brown" "fox" "walks" "past" "the" "lazy" "dog."]</code></p>
+                        <p><code>["The" "quick" "brown" "fox" "walks" "past" "the" "lazy" "dog."]</code></p>
                     </div>
                     <div class="fragment fade-in-then-out">
                         <p><strong>Step 2:</strong> Compare the list of words using SequenceMatcher</p>
@@ -256,7 +310,7 @@ Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 
                             https://docs.python.org/3/library/difflib.html#difflib.SequenceMatcher</p>
                     </div>
                     <div class="fragment fade-in-then-out">
-                        <p><strong>Step 4:</strong> Create the redlines from the tokens</p>
+                        <p><strong>Step 4:</strong> Create the redlines from the opcodes</p>
                         <ul class="r-stretch">
                             <li><code>('equal', 0, 4, 0, 4)</code> -> "The quick brown fox"</li>
                             <li><code>('replace', 4, 6, 4, 6)</code> -> "<span
@@ -295,14 +349,28 @@ Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 
                         <h2>November 2022</h2>
                         <p>Public release of ChatGPT</p>
                     </div>
-                    <img src="images/legal-chatbot.png"
-                         class="fragment fade-in-then-out"/>
-                    <img src="images/rag-sg-law.png"
-                         class="fragment fade-in-then-out"/>
-                    <img src="images/SG-Law-Cookies-by-Your-Amicus.png"
-                         class="fragment fade-in-then-out"/>
-                    <img src="images/courtroom-simulator.png"
-                         class="fragment fade-in-then-out"/>
+                    <div class="fragment fade-in-then-out">
+                        <img src="images/legal-chatbot.png"
+                             alt="Snapshot of a Mastodon Post captioned 'I am starting to realise that having someone continuously tell you to find a lawyer is not very much a friend.' "
+                        />
+                        <p class="caption">An interface for a legal chatbot</p>
+                    </div>
+                    <div class="fragment fade-in-then-out">
+                        <img src="images/rag-sg-law.png"
+                             alt="Screenshot showing various outputs from large language models">
+                        <p class="caption">"Retrieval Augmented Generation" using legal sources</p>
+                    </div>
+                    <div class="fragment fade-in-then-out">
+                        <img src="images/SG-Law-Cookies-by-Your-Amicus.png"
+                             alt="Screenshot of the home page of SG Law Cookies"/>
+                        <p class="caption">"Summarising legal news and generating a newsletter</p>
+                    </div>
+                    <div class="fragment fade-in-then-out">
+                        <p></p>
+                        <img src="images/courtroom-simulator.png"
+                             alt="Screenshot of a conversation with a LLM as a courtroom"/>
+                        <p class="caption">A courtroom simulator</p>
+                    </div>
                 </div>
             </section>
             <section>
@@ -383,7 +451,7 @@ Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 
                     </li>
                     <li>Look alive</li>
                 </ul>
-                <p class="fragment">Don't forget, <em>you're still the BDFL</em>.</p>
+                <p class="fragment">Don't forget, <em>you're still the Chief Cat Herder</em>.</p>
             </section>
             <section>
                 <p>The stars are nice, but what if I want to do other things with my life?</p>
@@ -406,6 +474,7 @@ Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 
             <section>
                 <h3>Benefit 1: A great way to learn how to code and how software is made</h3>
                 <p>A safe way to get "Real world" experience</p>
+                <aside class="notes">It's important to be where the sausage is being made.</aside>
             </section>
             <section>
                 <h3>Benefit 2: Master a different way to work</h3>
@@ -415,11 +484,15 @@ Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 
                 <h3>Benefit 3: Meet IRL people who are interested in the same things as you</h3>
                 <p>If you only spend time with lawyers, you will only ever get to meet lawyers.</p>
             </section>
+            <section>
+                <h3>Benefit 4: Create a something that lots of people can enjoy</h3>
+                <p>Free and Open source is as A2J as you can get.</p>
+            </section>
         </section>
         <section>
             <h3>Thanks for listening!</h3>
-            <p>By <strong style="font-family: equity_b_caps, Source Sans Pro, Helvetica, sans-serif">Ang Hou Fu</strong></p>
-            <p>Contact: <a href="mailto:houfu@lovelawrobots.com">email</a> </p>
+            <p>By <strong style="font-family: equity_b_caps, Source Sans Pro, Helvetica, sans-serif">Ang Hou Fu</strong>
+            </p>
         </section>
     </div>
 </div>
@@ -436,7 +509,8 @@ Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 
         hash: true,
 
         // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        slideNumber: true
     });
 </script>
 </body>
