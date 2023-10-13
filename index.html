@@ -126,31 +126,32 @@
                 <img src="images/legal-approves-my-contract.png" class="r-stretch"
                      alt="Picture of a mummy with caption: 'Me when legal finally approves my contract'. Source: https://x.com/heyitsalexsu/status/1701973373624950973?s=20"/>
                 <aside class="notes">
-                    We don't tolerate imperfection. Work products have to be flawless and defended vigorously.<br/>
-                    As perfectionists, we don't get involved where our output is not ideal. So lawyers become heavily specialised
-                    and do not get involved in other areas.
+                    Mistakes are not tolerated in the legal profession. Everything has to be perfect and pretty or else
+                    the judge or your boss will scold you.<br/>
+                    This demand also pervades in the tools lawyers use. ChatGPT cannot be used because it produces a
+                    different output every time you ask or it hallucinates.
+                    We also need to be (or look like) the smartest person in the room. So if there's something they are
+                    not aware or don't have an answer to, it's a shame.
                 </aside>
             </section>
             <section>
                 <p>Lawyers are very conscious of <strong> risks</strong></p>
                 <div class="fragment">Maybe a bit too much...</div>
                 <div class="r-stretch">
-                    <blockquote class="twitter-tweet tw-align-center">
-                        <p lang="en" dir="ltr" data-dnt="true"
-                           data-theme="dark"
-                           data-wdith="250">
-                            Sales: Legal is always worried about shit that
-                            never happens bro<br><br>Also sales: <a
-                                href="https://t.co/xkvmJMtd4l">pic.twitter.com/xkvmJMtd4l</a></p>&mdash; Alex Su
-                        (@heyitsalexsu) <a
-                            href="https://twitter.com/heyitsalexsu/status/1694007257846173779?ref_src=twsrc%5Etfw">August
-                        22, 2023</a></blockquote>
+                    <blockquote class="twitter-tweet tw-align-center" data-theme="dark" data-dnt="true"
+                                data-wdith="250"><p lang="en" dir="ltr">Business guy: contracts only matter when
+                        things go wrong <br><br>Me: that’s my point <br><br>Biz: that’s also my point</p>&mdash; Zen
+                        Lawyer Journey (@zenlawyerjourn1) <a
+                                href="https://twitter.com/zenlawyerjourn1/status/1711731055508480321?ref_src=twsrc%5Etfw">October
+                            10, 2023</a></blockquote>
                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
                 <aside class="notes">
                     To put it in a nice way, a lawyer's job is to manage risk. </br>
-                    However, this applies to all aspects of our lives. We don't take kindly to new technology or
-                    new methods of working.
+                    However, this applies to all aspects of our lives. If you follow the news on what is the legal
+                    fraternity's stand
+                    in AI, it's always about safety or governance.
+                    We hesitate to use or do new things until they have been throughly "tested".
                 </aside>
             </section>
             <section>
@@ -162,7 +163,10 @@
 Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 years' experience: Law Society "/>
                 <aside class="notes">
                     It's pretty well known in the industry that most lawyers don't last more than 5 years in practice.
-                    The reasons are quite complex.
+                    The reasons are quite complex. If you go on sglawmeme, you will find lots of young lawyers
+                    complaining about bad management and poor pay.<br/>
+                    What's more obvious is that many people who have a law degree don't end up being lawyers. So
+                    you need alternatives...
                 </aside>
             </section>
         </section>
@@ -206,6 +210,12 @@ Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 
             </section>
             <section>
                 <h2>How would we evaluate the readability of legislation?</h2>
+                <aside class="notes">
+                    I have my opinions whether these improvements actually improve readability but I wanted to do
+                    it with data science. <br/>
+                    This can be done by calculating the readability scores of the before and after change and then
+                    track the change.
+                </aside>
             </section>
             <section>
                 <p>It looks like this...</p>
@@ -216,6 +226,9 @@ Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 
                         href="https://www.lovelawrobots.com/evaluating-legislation-for-readability-exploring-plus">my
                     conclusions in this project on my blog.</a>
                 </p>
+                <aside class="notes">
+                    The graph shows the aggregated scores and changes of about 150 sections in the new acts.
+                </aside>
             </section>
             <section>
                 <p>I wanted a way to explore changes in detail (by section) too</p>
@@ -223,11 +236,23 @@ Over 30% spike in number of lawyers who quit in 2021, mostly those with under 5 
                      alt="Screenshot of the Section Explorer in detail"/>
                 <p class="caption">To see the finished app you can visit it here:
                     https://share.streamlit.io/houfu/plus-explorer/main/explorer.py</p>
+                <aside class="notes">
+                    This shows the section explorer which shows the data for each section, so you can see the
+                    readability
+                    scores in this section.
+                    There's another section where you can visualise the change. It's important so you can see
+                    what the change is and how it affected the scores.
+                </aside>
             </section>
             <section>
                 <p>So I needed a way to visualise changes in text.</p>
                 <img src="images/differences-in-text.png" class="r-stretch" alt="A screenshot of a comparison of
                 a block of two texts."/>
+                <aside class="notes">
+                    The problem with legal texts is that they are very long, so the text looks very dense.
+                    You can try to look for the change in the text.
+                    The computer should be able to show differences if it is given two texts.
+                </aside>
             </section>
             <section>
                 <p>The "python" way was not appealing to me.</p>
@@ -246,6 +271,10 @@ pprint(result)
  '?           ++++ ^                      ^\n',
  '+   5. Flat is better than nested.\n']
                 </code> </pre>
+                <aside class="notes">
+                    This format of showing changes might be familiar to some python programmers, but not
+                    lawyers. The format also makes it hard to compare long text.
+                </aside>
             </section>
             <section>
                 <p>I wanted Microsoft Word... in Markdown!</p>
@@ -270,7 +299,7 @@ pprint(result)
             <section>
                 <p>What's the easiest and fastest way to get my red lines?</p>
                 <p class="fragment fade-in-then-out">
-                    I used the <code>SequenceMatcher</code> helper in the standard python library.
+                    I used the <code>SequenceMatcher</code> in the standard python library.
                 </p>
             </section>
             <section>
@@ -389,7 +418,7 @@ pprint(result)
             <section>
                 <p>Other than stars, I found others volunteering pull requests and asking questions about the
                     library.</p>
-                <p class="fragment">Overnight, I have become <strong>an open source maintainer</strong>...</p>
+                <p class="fragment">Overnight, I had become <strong>an open source maintainer</strong>...</p>
             </section>
             <section>
                 <p>With this encouragement, I was able to try many things that I wouldn't do as a user</p>
@@ -400,7 +429,12 @@ pprint(result)
                      class="r-stretch"/>
             </section>
             <section>
-                <p>Opening up a Matrix channel to receive questions and discuss</p>
+                <p>Publishing a documentation website</p>
+                <img src="images/redlines-API-documentation.png"
+                     class="r-stretch"/>
+            </section>
+            <section>
+                <p>Opening up a Matrix channel for discussions</p>
                 <img src="images/matrix-room.avif"
                      class="r-stretch">
             </section>
@@ -412,8 +446,9 @@ pprint(result)
                     <li>Considering Long documents</li>
                     <li>More stylings</li>
                 </ul>
-                <p class="fragment">Hopefully, the library gets to where I envisioned it'd go: <span class="redlines">redlines</span>
-                    everywhere for anyone</p>
+                <p class="fragment">We'll see what the future holds for <span class="redlines">redlines.</span>
+                </p>
+                <aside class="notes">Definitely not what I expected when I first wrote the library</aside>
             </section>
         </section>
         <section>
@@ -424,11 +459,19 @@ pprint(result)
                 <h3>New contributions are not so straightforward</h3>
                 <p class="fragment">If the pull request is too awesome...</p>
                 <p class="fragment">I worry that I am not good enough to evaluate it. 😭</p>
+                <aside class="notes">
+                    I am not a programmer, so this is new to me. Limits of my knowledge. Sometimes
+                    I have feelings for my own code.
+                </aside>
             </section>
             <section>
                 <h3>On the other hand...</h3>
                 <p class="fragment">If the pull request is terrible...</p>
                 <p class="fragment">I get upset when it breaks the code or wastes my time. 😠</p>
+                <aside class="notes">
+                    Sometimes I have feelings for my own code.
+                    I waste a lot of time triaging when the issue or PR etc is not well written.
+                </aside>
             </section>
             <section>
                 <h3>Just take it easy, bro 😎</h3>
@@ -452,10 +495,17 @@ pprint(result)
                     <li>Look alive</li>
                 </ul>
                 <p class="fragment">Don't forget, <em>you're still the Chief Cat Herder</em>.</p>
+                <aside class="notes">
+                    It may not be realistic to expect others to do the work for you, so you may want to do some of it
+                    yourself.
+                </aside>
             </section>
             <section>
                 <p>The stars are nice, but what if I want to do other things with my life?</p>
-                <p class="fragment">There's always a conflict between the 🔥 in my 💙 and the 🔥 in my 🧠.</p>
+                <aside class="notes">
+                    This is a serious problem because I have limtied time and I need to do other stuff. <br />
+                    I also have to figure out how or what basis to spend time on this project.
+                </aside>
             </section>
             <section>
                 <h3>Avoiding burnout</h3>
@@ -474,19 +524,41 @@ pprint(result)
             <section>
                 <h3>Benefit 1: A great way to learn how to code and how software is made</h3>
                 <p>A safe way to get "Real world" experience</p>
-                <aside class="notes">It's important to be where the sausage is being made.</aside>
+                <aside class="notes">
+                    It's important to be where the sausage is being made. Unless your job is actually software development,
+                    this is the closest you will get to producing software. So hone your coding skills and experience<br />
+                    Also helps at work. If your colleagues are doing software development, having some experience will
+                    give you more insight into their issues as a lawyer. <br />
+                    Programming skills are applicable at work. I created a contract generator using python and open source code.
+                    Separates you as an individual.
+                </aside>
             </section>
             <section>
                 <h3>Benefit 2: Master a different way to work</h3>
                 <p>You're working from home all the time</p>
+                <aside class="notes">
+                    There are ways to manage someone other than using your seniority or throwing staplers at people. <br />
+                    Must learn to communicate well because online communication tools are your only avenue. Need to handle
+                    asynchronous communication as well. <br />
+                    Influencing others -- need to get other people interested and happy contributing to your project.
+                </aside>
             </section>
             <section>
                 <h3>Benefit 3: Meet IRL people who are interested in the same things as you</h3>
                 <p>If you only spend time with lawyers, you will only ever get to meet lawyers.</p>
+                <aside class="notes">
+                    Sad fact of adult life <br />
+                    Want to learn, then follow the right people. <br />
+                    Few lawyers who code. Open source may be the best and only place to find one.
+                </aside>
             </section>
             <section>
                 <h3>Benefit 4: Create a something that lots of people can enjoy</h3>
                 <p>Free and Open source is as A2J as you can get.</p>
+                <aside class="notes">
+                    Example of what people I see are using redlines, which was unexpected to me. <br />
+                    It's important for lawyers and other professionals to be involved in open source. Wide variety of roles.
+                </aside>
             </section>
         </section>
         <section>
